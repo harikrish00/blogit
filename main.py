@@ -22,6 +22,7 @@ from services.new_post_handler import NewPostHandler
 from services.sign_up_handler import SignUpHandler
 from services.welcome_handler import WelcomeHandler
 from services.login_handler import LoginHandler
+from services.logout_handler import LogoutHandler
 
 app = webapp2.WSGIApplication([
     (r'/blog', BlogListHandler),
@@ -29,5 +30,6 @@ app = webapp2.WSGIApplication([
     (r'/blog/newpost', NewPostHandler),
     (r'/blog/signup', SignUpHandler),
     (r'/blog/welcome', WelcomeHandler),
-    (r'/blog/login', LoginHandler)
+    (r'/blog/login', LoginHandler),
+    (r'/blog/logout', LogoutHandler)
     ], debug=True)
