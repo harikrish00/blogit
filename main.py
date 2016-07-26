@@ -21,11 +21,13 @@ from services.blog_list_handler import BlogListHandler
 from services.new_post_handler import NewPostHandler
 from services.sign_up_handler import SignUpHandler
 from services.welcome_handler import WelcomeHandler
+from services.login_handler import LoginHandler
 
 app = webapp2.WSGIApplication([
     (r'/blog', BlogListHandler),
     (r'/blog/(\d+)', BlogHandler),
     (r'/blog/newpost', NewPostHandler),
     (r'/blog/signup', SignUpHandler),
-    (r'/blog/welcome',WelcomeHandler)
+    (r'/blog/welcome', WelcomeHandler),
+    (r'/blog/login', LoginHandler)
     ], debug=True)
