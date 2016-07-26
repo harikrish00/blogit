@@ -56,9 +56,8 @@ class SignUpHandler(Handler):
             password_hash = hash_str(user_password)
             user = User(username = user_username, password = password_hash, email = user_email)
             user.put()
-            self.redirect('/blog/login')
-            # self.response.headers.add_header('Set-Cookie','user_id=%s; Path=/' % make_secure_value(str(user.key().id())))
-            # self.redirect("/blog/welcome")
+            self.response.headers.add_header('Set-Cookie','user_id=%s; Path=/' % make_secure_value(str(user.key().id())))
+            self.redirect("/blog/welcome")
         else:
             self.render("signup.html",
             username_error = username_error,
