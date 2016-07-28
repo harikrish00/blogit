@@ -1,5 +1,6 @@
 from handler import Handler
-from sign_up_handler import *
+from models.user import User
+from helpers.session_helper import *
 
 class WelcomeHandler(Handler):
     def get(self):

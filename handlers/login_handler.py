@@ -1,7 +1,6 @@
 from handler import Handler
-from sign_up_handler import *
 from models.user import User
-from google.appengine.ext import db
+from helpers.session_helper import *
 
 class LoginHandler(Handler):
     def get(self):

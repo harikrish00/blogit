@@ -1,7 +1,6 @@
 from handler import Handler
 from models.user import User
 from helpers.validate_helper import *
-from helpers.session_helper import *
 
 class SignUpHandler(Handler):
     def get(self):

@@ -1,7 +1,5 @@
 import hashlib
 import hmac
-import random
-import string
 
 SECRET = 'IAmVerySecret12!'
 
@@ -20,3 +18,8 @@ def make_secure_value(val):
 def validate_pw(username, password, hash_val):
     salt = hash_val.split('|')[0]
     return hash_pwd(username, password, salt) == hash_val
+
+def check_secure_val(secure_val):
+    val = secure_val.split('|')[0]
+    if secure_val == make_secure_value(val):
+        return val
