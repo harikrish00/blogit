@@ -15,13 +15,13 @@
       </div>
       <div class="panel-body">
         <form method="post">
-          <div class="form-group row">
+          <div class="row">
             <label class="col-sm-2 form-control-label text-right"> Name </label>
             <div class="col-sm-4">
               <input type="text" name="username" value="{{username}}" class="form-control" />
             </div>
           </div>
-          <div class="form-group row">
+          <div class="row">
             <label class="col-sm-2 form-control-label text-right"> Password </label>
             <div class="col-sm-4">
               <input type="password" name="password" class="form-control"/>
@@ -32,9 +32,10 @@
               </span><br><br>
             </div>
           </div>
-          <div class="form-group row">
+          <div class="row">
             <div class="col-sm-offset-2 col-sm-10">
               <button type="submit" class="btn btn-primary"/>Login</button>
+              | New user? <a href="/blog/signup">Signup</a>
             </div>
           </div>
         </form>

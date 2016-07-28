@@ -63,7 +63,21 @@
       <ul class="nav navbar-nav">
         <li><a href="/blog">Home</a></li>
         <li><a href="/blog/newpost">New Post</a></li>
-        <li><a href="/blog/signup">Signup</a></li
+        <!-- {% if user %}
+          {{user.username}} |<li><a href="/blog/logout">Sign Out</a></li>
+        {% else %}
+          <li><a href="/blog/login">Sign In</a></li>
+        {% endif %} -->
+        <li>
+          <div class="navbar-text text-right">
+            {% if user %}
+                Greetings&nbsp;&nbsp;&nbsp;{{ user.username }} |
+                <a href="/blog/logout">Sign out</a>
+            {% else %}
+                <a href="/blog/logout">Sign In</a>
+            {% endif %}
+          </div>
+        </li>
       </ul>
     </nav>
 
