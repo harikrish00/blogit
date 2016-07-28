@@ -16,13 +16,13 @@
 #
 
 import webapp2
-from services.blog_handler import BlogHandler
-from services.blog_list_handler import BlogListHandler
-from services.new_post_handler import NewPostHandler
-from services.sign_up_handler import SignUpHandler
-from services.welcome_handler import WelcomeHandler
-from services.login_handler import LoginHandler
-from services.logout_handler import LogoutHandler
+from handlers.blog_handler import BlogHandler
+from handlers.blog_list_handler import BlogListHandler
+from handlers.new_post_handler import NewPostHandler
+from handlers.sign_up_handler import SignUpHandler
+from handlers.welcome_handler import WelcomeHandler
+from handlers.login_handler import LoginHandler
+from handlers.logout_handler import LogoutHandler
 
 app = webapp2.WSGIApplication([
     (r'/blog', BlogListHandler),
