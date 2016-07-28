@@ -1,5 +1,7 @@
-import hashlib
 import hmac
+import random
+import string
+import hashlib
 
 SECRET = 'IAmVerySecret12!'
 
