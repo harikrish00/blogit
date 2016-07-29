@@ -3,7 +3,11 @@ from handler import Handler
 
 class NewPostHandler(Handler):
     def get(self):
-        self.render("new.html")
+        if self.authenticated():
+            self.render("new.html")
+        else:
+            self.redirect("/blog/login")
+            alert_message = "Please login to access this feature"
 
     def post(self):
         title = self.request.get("subject")

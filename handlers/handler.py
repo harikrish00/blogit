@@ -1,10 +1,6 @@
 import os
 import webapp2
 import jinja2
-import hmac
-import random
-import string
-import hashlib
 from google.appengine.ext import db
 from models.user import User
 from helpers.session_helper import *
@@ -12,6 +8,7 @@ from helpers.session_helper import *
 template_dir = os.path.join(os.path.dirname(__file__), "../templates")
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
                                autoescape=True)
+alert_message = ""
 
 def render_str(template, **params):
     t = jinja_env.get_template(template)
@@ -36,3 +33,6 @@ class Handler(webapp2.RequestHandler):
         webapp2.RequestHandler.initialize(self, *a, **kw)
         uid = self.read_secure_cookie('user_id')
         self.user = uid and User.by_id(int(uid))
+
+    def authenticated(self):
+        return self.read_secure_cookie('user_id')

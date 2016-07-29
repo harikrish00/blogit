@@ -64,12 +64,9 @@
     <nav class="navbar navbar-inverse">
       <ul class="nav navbar-nav">
         <li><a href="/blog">Home</a></li>
+        {% if user %}
         <li><a href="/blog/newpost">New Post</a></li>
-        <!-- {% if user %}
-          {{user.username}} |<li><a href="/blog/logout">Sign Out</a></li>
-        {% else %}
-          <li><a href="/blog/login">Sign In</a></li>
-        {% endif %} -->
+        {% endif %}
         <li>
           <div class="navbar-text text-right">
             {% if user %}
@@ -85,6 +82,11 @@
 
 
     <hr />
+    {% if alert_message %}
+      <div class="alert alert-danger">
+        {{ alert_message }}
+      </div>
+    {% endif %}
     {% block content %}
     {% endblock %}
 

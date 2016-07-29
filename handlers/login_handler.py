@@ -4,7 +4,7 @@ from helpers.session_helper import *
 
 class LoginHandler(Handler):
     def get(self):
-        if not self.read_secure_cookie('user_id'):
+        if not self.authenticated():
             self.render('login.html')
         else:
             self.redirect('/blog')
