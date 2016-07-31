@@ -6,14 +6,28 @@
   <div class="jumbotron">
     <div class="row" style="font-weight:300; font-size:24px;">
       <div class="col-sm-6 vcenter">
-        {{post.title}}
+        <a href="/blog/{{post.key().id()}}">{{ post.title }}</a>
       </div>
       <div class="col-sm-4 vcenter text-right" style="font-size:12px; color: gray;">
-        {{ post.created.strftime('%d, %b, %Y') }}
+        {{ post.created.strftime('%d, %b, %Y') }} | created by: {{ post.author.username }}
       </div>
       <hr />
     </div>
     <p> {{post.content}} </p>
+    <div class="row comment-like">
+      <div class="col-sm-5">
+        <form method="post" action="/blog/likepost">
+          <button type="submit" class="btn btn-xs btn-primary">
+            <input type="hidden" name="like" value="{{post.key().id()}}" />
+            {% if post.likes %} {{post.likes}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
+          </button>
+        </form>
+      </div>
+      <div class="col-sm-5">
+          <a class="btn btn-sm btn-info" href="/blog/{{post.key().id()}}" style="display:inline;">Comment</a>
+      </div>
+    </div>
+
   </div>
   {% endfor %}
 {% endblock %}

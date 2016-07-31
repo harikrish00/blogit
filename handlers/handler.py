@@ -36,3 +36,6 @@ class Handler(webapp2.RequestHandler):
 
     def authenticated(self):
         return self.read_secure_cookie('user_id')
+
+    def login_redirect(self, auth_error = "You need to login to perform this action !"):
+        self.render("login.html", auth_error = auth_error)

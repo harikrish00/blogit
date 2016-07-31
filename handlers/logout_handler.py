@@ -7,4 +7,4 @@ class LogoutHandler(Handler):
         if user_cookie:
             self.response.headers.add_header('Set-Cookie','user_id=; Path=/')
             User.loggedin_user = False
-            self.redirect('/blog/signup')
+            self.redirect('/blog')

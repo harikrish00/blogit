@@ -1,5 +1,7 @@
 from handler import Handler
 from google.appengine.ext import db
+from models.post import Post
+from models.user import User
 
 class BlogListHandler(Handler):
     def get(self):

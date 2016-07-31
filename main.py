@@ -23,13 +23,17 @@ from handlers.sign_up_handler import SignUpHandler
 from handlers.welcome_handler import WelcomeHandler
 from handlers.login_handler import LoginHandler
 from handlers.logout_handler import LogoutHandler
+from handlers.user_posts_handler import UserPostsHandler
+from handlers.like_handler import LikeHandler
 
 app = webapp2.WSGIApplication([
     (r'/blog', BlogListHandler),
     (r'/blog/(\d+)', BlogHandler),
     (r'/blog/newpost', NewPostHandler),
+    (r'/blog/myposts', UserPostsHandler),
     (r'/blog/signup', SignUpHandler),
     (r'/blog/welcome', WelcomeHandler),
     (r'/blog/login', LoginHandler),
-    (r'/blog/logout', LogoutHandler)
+    (r'/blog/logout', LogoutHandler),
+    (r'/blog/likepost',LikeHandler)
     ], debug=True)
