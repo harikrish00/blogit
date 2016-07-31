@@ -3,11 +3,16 @@
 {% block content %}
 
 <section class="container">
+     {% if auth_error %}
+     <div class="alert alert-danger">
+          {{ auth_error }}
+     </div>
+     {% endif %}
      <div class="well" style="max-width: 450px;">
           <p>
                <h2 class="text-center"> Login </h2>
           </p>
-          <form method="post">
+          <form method="post" action="/blog/login">
                <div class="row">
                     <label class="col-sm-2 form-control-label text-right"> Name </label>
                     <div class="col-sm-6">
