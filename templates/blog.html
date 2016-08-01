@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container">
 <div class="jumbotron">
   <div class="row">
     <div class="col-sm-12" style="font-weight: 300; font-size: 30;">
@@ -12,19 +13,34 @@
     </div>
   </div>
 
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-sm-12">
       <a href="/blog/newpost" class="btn btn-sm btn-primary">Create Another Post</a>
       <a href="/blog" class="btn btn-sm btn-success">I am Done !</a>
     </div>
+  </div> -->
+</div>
+  <div class="row">
+    {% for comment in post.comments %}
+    <div class="col-sm-8">
+      <hr />
+      <p class="comment-heading">{{ comment.commenter.username }}</strong>
+      <p>
+        {{ comment.comment }}
+      </p>
+    </div>
+    {% endfor %}
+
+
   </div>
   <div class="row">
     <div class="col-sm-5">
-      <form method="post" action="/blog/comments">
+      <form method="post" action="/blog/commentpost?post_id={{ post.key().id()}}">
         <h4> Enter your comments below</h4>
         <textarea name="comments" rows="5" cols="50" class="form-control comments-area"></textarea>
         <button type="submit" class="btn btn-sm btn-primary">Post away!</button>
       </form>
     </div>
   </div>
+</div>
 {% endblock %}

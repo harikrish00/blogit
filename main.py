@@ -25,6 +25,8 @@ from handlers.login_handler import LoginHandler
 from handlers.logout_handler import LogoutHandler
 from handlers.user_posts_handler import UserPostsHandler
 from handlers.like_handler import LikeHandler
+from handlers.comment_handler import CommentHandler
+
 
 app = webapp2.WSGIApplication([
     (r'/blog', BlogListHandler),
@@ -35,5 +37,6 @@ app = webapp2.WSGIApplication([
     (r'/blog/welcome', WelcomeHandler),
     (r'/blog/login', LoginHandler),
     (r'/blog/logout', LogoutHandler),
-    (r'/blog/likepost',LikeHandler)
+    (r'/blog/likepost',LikeHandler),
+    (r'/blog/commentpost',CommentHandler)
     ], debug=True)
