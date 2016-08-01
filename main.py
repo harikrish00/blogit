@@ -29,6 +29,7 @@ from handlers.comment_handler import CommentHandler
 
 
 app = webapp2.WSGIApplication([
+    (r'/', BlogListHandler),
     (r'/blog', BlogListHandler),
     (r'/blog/(\d+)', BlogHandler),
     (r'/blog/newpost', NewPostHandler),

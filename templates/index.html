@@ -19,7 +19,7 @@
         <form method="post" action="/blog/likepost">
           <button type="submit" class="btn btn-xs btn-primary">
             <input type="hidden" name="like" value="{{post.key().id()}}" />
-            {% if post.likes %} {{post.likes.count()}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
+            {% if post.likes.count() > 0 %} {{post.likes.count()}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
           </button>
         </form>
       <!-- </div> -->
