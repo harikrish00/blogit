@@ -15,15 +15,15 @@
     </div>
     <p> {{post.content}} </p>
     <div class="row comment-like">
-      <div class="col-sm-5">
+      <div class="col-sm-12">
         <form method="post" action="/blog/likepost">
           <button type="submit" class="btn btn-xs btn-primary">
             <input type="hidden" name="like" value="{{post.key().id()}}" />
-            {% if post.likes %} {{post.likes}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
+            {% if post.likes %} {{post.likes.count()}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
           </button>
         </form>
-      </div>
-      <div class="col-sm-5">
+      <!-- </div> -->
+      <!-- <div class="col-sm-5"> -->
           <a class="btn btn-sm btn-info" href="/blog/{{post.key().id()}}" style="display:inline;">Comment</a>
       </div>
     </div>

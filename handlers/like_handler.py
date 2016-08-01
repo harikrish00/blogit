@@ -1,16 +1,21 @@
 from handlers.handler import Handler
 from models.post import Post
+from models.like import Like
 
 class LikeHandler(Handler):
     def post(self):
         if self.authenticated():
             post_id = self.request.get("like")
             post = Post.get_by_id(int(post_id))
-            if post.likes:
-                post.likes = post.likes + 1
-            else:
-                post.likes = 1
-            post.put()
+            if not post.author.username == self.user.username:
+                likes = post.likes.get()
+                if likes:
+                    if not likes.voter.username == self.user.username:
+                        like_new = Like(post = post, voter = self.user)
+                        like_new.put()
+                else:
+                    like_new = Like(post = post, voter = self.user)
+                    like_new.put()
             self.redirect("/blog")
         else:
             self.login_redirect()
