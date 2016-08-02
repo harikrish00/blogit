@@ -4,13 +4,14 @@ from helpers.validate_helper import *
 from helpers.session_helper import *
 
 class SignUpHandler(Handler):
+    """Handles user sign up submission, validates and create users in database"""
     def get(self):
         self.render("signup.html")
 
     def post(self):
-        # Error messages
         username_error = invalid_email = invalid_password = verify_password_error = None
 
+        #Retrieve form information from user sign up submission
         user_username = self.request.get("username")
         user_password = self.request.get("password")
         user_verify_password = self.request.get("verify")

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- <a href="/blog/newpost" class="btn btn-primary">New Post</a> -->
+{% if posts.count() > 0 %}
   {% for post in posts %}
   <div class="jumbotron">
     <div class="row" style="font-weight:300; font-size:24px;">
@@ -16,18 +16,29 @@
     <p> {{post.content}} </p>
     <div class="row comment-like">
       <div class="col-sm-12">
-        <form method="post" action="/blog/likepost">
+        <form method="post" action="/blog/likepost" style="display: inline;">
           <button type="submit" class="btn btn-xs btn-primary">
             <input type="hidden" name="like" value="{{post.key().id()}}" />
             {% if post.likes.count() > 0 %} {{post.likes.count()}} &nbsp;&nbsp;{% endif %}<i class="glyphicon glyphicon-heart"></i> Like
           </button>
         </form>
-      <!-- </div> -->
-      <!-- <div class="col-sm-5"> -->
-          <a class="btn btn-sm btn-info" href="/blog/{{post.key().id()}}" style="display:inline;">Comment</a>
+        <a class="btn btn-sm btn-info" href="/blog/{{post.key().id()}}" style="display: inline;">Comment</a>
+        <div class="pull-right">
+          <a href="/blog/editpost?post_id={{post.key().id()}}" class="btn btn-xs btn-success">Edit</a> |
+          <form method="post" action="/blog/deletepost" style="display: inline;">
+            <input type="hidden" name="post_id" value="{{post.key().id()}}" />
+            <button type="submit" class="btn btn-xs btn-danger">Delete</a>
+          </form>
+        </div>
       </div>
     </div>
 
   </div>
   {% endfor %}
+{% else %}
+  <div class="jumbotron">
+    <h2>No one has written a blog yet, why dont you write one?</h2>
+    <a class="btn btn-sm btn-primary" href='/blog/newpost'>Create my first post</a>
+  </div>
+{% endif %}
 {% endblock %}

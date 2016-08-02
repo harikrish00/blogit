@@ -12,3 +12,7 @@ class Post(db.Model):
     @classmethod
     def by_author(self, user):
         return Post.all().filter("author =", user)
+
+    @classmethod
+    def get_all_posts(self):
+        return db.GqlQuery("SELECT * FROM Post ORDER BY created DESC")

@@ -55,8 +55,8 @@
 
   @media screen and (max-width: 960px) {
     .logo-img {
-        display: block;
-        margin: 0 auto;
+      display: block;
+      margin: 0 auto;
     }
   }
   </style>
@@ -81,25 +81,28 @@
         <li>
           <div class="navbar-text text-right">
             {% if user %}
-                Greetings&nbsp;&nbsp;&nbsp;{{ user.username }} |
-                <a href="/blog/logout">Sign out</a>
+            Greetings&nbsp;&nbsp;&nbsp;{{ user.username }} |
+            <a href="/blog/logout">Sign out</a>
             {% else %}
-                <a href="/blog/login">Sign In</a>
+            <a href="/blog/login">Sign In</a>
             {% endif %}
           </div>
         </li>
       </ul>
     </nav>
-
-
     <hr />
     {% if alert_message %}
-      <div class="alert alert-danger">
-        {{ alert_message }}
-      </div>
+    <div class="alert alert-info">
+      {{ alert_message}}
+    </div>
+    <script>
+    window.setTimeout(function(){
+      window.location.href = "/";
+    }, 5000);
+    </script>
     {% endif %}
     {% block content %}
     {% endblock %}
 
-</body>
-</html>
+  </body>
+  </html>
