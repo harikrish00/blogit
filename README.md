@@ -3,9 +3,11 @@
 # How to Run
 
 Pre-Requisite: Please download google appengine SDK and install on your laptop
+Link: https://cloud.google.com/appengine/downloads
+
 1. Clone the repository on your laptop
-2. cd into your newly cloned repository directory
-3. Issue the following command
+1. cd into your newly cloned repository directory
+1. Issue the following command
 
 `dev_appserver.py .`
 
@@ -37,5 +39,10 @@ http://blogit-1380.appspot.com
 # Front End
 * Used boostrap themes
 * Custom styles throush styles.css
+
+# Backend
+* Python
+* WebApp2 (Google appengine sdk)
+* Google Datastore
 
 
