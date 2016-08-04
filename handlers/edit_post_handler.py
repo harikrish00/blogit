@@ -10,7 +10,9 @@ class EditPostHandler(Handler):
             if post.author.username == self.user.username:
                 self.render("edit.html",post = post)
             else:
-                self.redirect('/')
+                self.render_homepage("You can not edit others post !")
+        else:
+            self.login_redirect()
 
     def post(self):
         post_id = self.request.get('post_id')
