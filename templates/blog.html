@@ -23,7 +23,19 @@
     {% for comment in post.comments %}
     <div class="col-sm-8">
       <hr />
-      <p class="comment-heading">{{ comment.commenter.username }}</strong>
+        <div class="comment-heading text-right" style="display: inline;">
+          {{ comment.commenter.username }}
+        </div>
+        <div class="pull-right">
+          <a href="/blog/editcomment?comment_id={{comment.key().id()}}" class="btn btn-xs btn-success">Edit</a> |
+          <form method="post" action="/blog/deletecomment" style="display: inline;">
+            <button type="submit" class="btn btn-xs btn-danger">
+              <input type="hidden" name="comment_id" value="{{comment.key().id()}}" />
+              <i class="glyphicon glyphicon-trash"></i>&nbsp;Delete
+            </button>
+          </form>
+        </div>
+
       <p>
         {{ comment.comment }}
       </p>

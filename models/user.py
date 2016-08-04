@@ -1,5 +1,5 @@
 from google.appengine.ext import db
-from helpers.session_helper import *
+from helpers import session_helper
 
 class User(db.Model):
     username = db.StringProperty(required = True)
@@ -19,6 +19,6 @@ class User(db.Model):
     @classmethod
     def login(cls, username, pw):
         user = cls.by_name(username)
-        if user and validate_pw(username, pw, user.password):
+        if user and session_helper.validate_pw(username, pw, user.password):
             User.loggedin_user = True
             return user

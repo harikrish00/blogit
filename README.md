@@ -44,5 +44,3 @@ http://blogit-1380.appspot.com
 * Python
 * WebApp2 (Google appengine sdk)
 * Google Datastore
-
-

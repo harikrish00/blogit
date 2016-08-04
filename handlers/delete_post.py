@@ -1,7 +1,5 @@
 from handlers.handler import Handler
-from handlers import blog_list_handler
 from models.post import Post
-import time
 
 class DeletePostHandler(Handler):
     def post(self):

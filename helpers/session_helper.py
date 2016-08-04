@@ -2,8 +2,9 @@ import hmac
 import random
 import string
 import hashlib
+import os
 
-SECRET = 'IAmVerySecret12!'
+SECRET = os.environ['BLOG_SECRET']
 
 def make_salt():
     return ''.join(random.choice(string.letters) for x in range(5))

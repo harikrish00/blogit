@@ -5,7 +5,6 @@ from google.appengine.ext import db
 from models.user import User
 from models.post import Post
 from helpers.session_helper import *
-import time
 
 template_dir = os.path.join(os.path.dirname(__file__), "../templates")
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir),
