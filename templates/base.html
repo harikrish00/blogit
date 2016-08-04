@@ -4,6 +4,8 @@
     BlogIt
   </title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <script src="/static/js/jquery-2.2.4.js"></script>
   <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/static/css/style.css" />
@@ -14,10 +16,10 @@
   <div class="container">
     <header class="row">
       <div class="col-sm-4">
-        <img src="/static/blog-icon.png" class="logo-img"/>
+        <img src="/static/blog-icon.png" class="logo-img img-responsive"/>
       </div>
       <div class="col-sm-8">
-        <h1 class="title-super text-right">Blog.it.com</h1>
+        <h1 class="title-super text-right title-text">Blog.it.com</h1>
       </div>
     </header>
     <nav class="navbar navbar-inverse">
@@ -28,7 +30,7 @@
         <li><a href="/blog/newpost">New Post</a></li>
         {% endif %}
         <li>
-          <div class="navbar-text text-right">
+          <div class="navbar-text">
             {% if user %}
             Greetings&nbsp;&nbsp;&nbsp;{{ user.username }} |
             <a href="/blog/logout">Sign out</a>
@@ -52,5 +54,6 @@
     {% endif %}
     {% block content %}
     {% endblock %}
+  </div>
   </body>
   </html>

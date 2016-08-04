@@ -40,9 +40,26 @@ body {
   vertical-align: baseline;
 }
 
+/*.greetings {
+  text-align: right;
+}*/
 @media screen and (max-width: 960px) {
-  .logo-img {
+  /*.logo-img {
     display: block;
     margin: 0 auto;
-  }
+  }*/
+}
+
+@media screen and (max-width: 767px) {
+.logo-img {
+    display: block;
+    margin: 0 auto;
+}
+.title-text {
+    text-align: center;
+}
+}
+
+.navbar-text {
+  margin-left: 15px;
 }
